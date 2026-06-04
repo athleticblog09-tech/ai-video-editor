@@ -1,5 +1,8 @@
 from fastapi import FastAPI
 from app.api.v1.health import router as health_router
+from app.database.connection import Base, engine
+
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="AI Video Editor")
 
